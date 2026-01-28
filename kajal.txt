@@ -1,0 +1,22 @@
+# Use an official Ubuntu image as a parent image
+FROM ubuntu:latest
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Update the package list and install any needed packages
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    wget \
+    nano \
+    vim
+
+# Expose port 80 to the world outside this container
+EXPOSE 80
+
+# Define environment variable
+ENV NAME Ubuntu
+
+# Run bash when the container launches
+CMD ["bash"]
